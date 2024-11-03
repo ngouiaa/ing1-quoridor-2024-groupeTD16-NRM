@@ -14,7 +14,10 @@ int main() {
         scanf("%d",&choix);
         switch(choix) {
             case 1 :
-                
+                int main(void){
+                    int p1[T][T];
+                    initialiser_plateau(p1,2);
+                    afficher_plateau(p1);
             break;
             case 2 :
                 
@@ -33,19 +36,4 @@ int main() {
         }
     }while(choix != 5);
     return 0;
-}
-
-
-
-
-
-
-
-
-int main(void) {
-    int p1[T][T];
-    initialiser_plateau(p1,2);
-    afficher_plateau(p1);
-    return 0;
-
 }
