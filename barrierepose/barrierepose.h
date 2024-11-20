@@ -6,7 +6,7 @@
 
 #define MAX_BARRIERES_2_JOUEURS 10 // Nombre de barrières pour 2 joueurs
 #define MAX_BARRIERES_4_JOUEURS 5  // Nombre de barrières pour 4 joueurs
-#define T 9            // Taille de la grille (9x9)
+#define T 9            // Taille de la grille 9x9
 #define MAX_JOUEURS 4              // Maximum de joueurs
 
 // Structure pour représenter une barrière
