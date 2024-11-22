@@ -1,7 +1,6 @@
 //
 // Created by gouia on 20/11/2024.
 //
-
 #ifndef MAINN_H
 #define MAINN_H
 #ifndef HEADER_H
@@ -14,7 +13,7 @@ extern char NomJoueurs[4][32];
 extern unsigned short int NBJoueurs;
 extern unsigned short int TableauBarriereRest[4];
 extern unsigned short int OrdreJeu[4];
-extern unsigned short int TableauHistoire[100][3];
+extern unsigned short int TableauHistorique[100][3];
 extern unsigned short int TableauSymbole[4];
 
 // Prototypes des fonctions
