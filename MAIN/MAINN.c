@@ -7,11 +7,10 @@
 #include <string.h>
 #include "MAINN.h"
 
-// Implémentations des fonctions
 void InitialiserStructures() {
     memset(TableauP, 0, sizeof(TableauP));
     memset(TableauB, 0, sizeof(TableauB));
-    memset(TableauHistoire, 0, sizeof(TableauHistoire));
+    memset(TableauHistorique, 0, sizeof(TableauHistorique));
     for (unsigned short int i = 0; i < 4; i++) {
         TableauBarriereRest[i] = 0;
         OrdreJeu[i] = i;
