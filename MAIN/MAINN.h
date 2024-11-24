@@ -20,6 +20,8 @@ extern unsigned short int TableauSymbole[4];
 void InitialiserStructures();
 void ConfigurerJeu();
 int ChoisirAction(unsigned short int joueur);
+void sauvegarderPartie(const char *nomFichier, unsigned short int tour);
+void chargerPartie(const char *nomFichier, unsigned short int *tour);
 
 #endif
 
