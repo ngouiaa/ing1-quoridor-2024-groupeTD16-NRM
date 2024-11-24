@@ -1,48 +1,45 @@
 #include <stdio.h>
-#include "barrierepose.h"
+#include "poserBarrieres.h"
+#include "MAINN.h"
 
-int main() {
-    int nb_joueurs;
-    do {
-        printf("Entrez le nombre de joueurs (2 ou 4) : ");
-        scanf("%d", &nb_joueurs);
-    } while (nb_joueurs != 2 && nb_joueurs != 4);
-
-    // Initialisation des joueurs
-    Joueur joueurs[MAX_JOUEURS];
-    initialiser_joueurs(joueurs, nb_joueurs);
-
-    // Initialisation de la grille
-    char grille[T][T];
+// Initialisation du tableau des barrières
+void InitialiserTableauB() {
     for (int i = 0; i < T; i++) {
         for (int j = 0; j < T; j++) {
-            grille[i][j] = ' ';
+            TableauB[i][j] = 0; // Toutes les cases de barrières sont vides
         }
     }
+}
 
-    // Tour de jeu (exemple simplifié)
-    for (int tour = 0; tour < 2 * nb_joueurs; tour++) {
-        int joueur_actuel = tour % nb_joueurs;
-        printf("\nJoueur %d, barrieres restantes : %d\n",
-               joueur_actuel + 1, joueurs[joueur_actuel].barrieres_restantes);
+int main() {
+    // Initialisation du jeu
+    Joueur joueurs[MAX_JOUEURS];
+    initialiser_joueurs(joueurs, 2); // Initialiser 2 joueurs pour cet exemple
 
-        // Lecture des coordonnées de la barrière
-        Barriere barriere;
-        printf("Entrez la position de la barriere (x y orientation) : ");
-        scanf("%d %d %c", &barriere.x, &barriere.y, &barriere.orientation);
+    char grille[T][T];
+    InitialiserTableauB();  // Initialise la grille des barrières
 
-        // Pose de la barrière
-        barrierepose(&joueurs[joueur_actuel], &barriere, grille);
+    // Test : Joueur 1 place une barrière à (2, 3) horizontale
+    printf("Test : Joueur 1 place une barrière en (2, 3) horizontale\n");
+    poserBarriere(0, 2, 3, 'H', joueurs, grille);
 
-        // Affichage de la grille
-        printf("Etat de la grille :\n");
-        for (int i = 0; i < T; i++) {
-            for (int j = 0; j < T; j++) {
-                printf("%c ", grille[i][j]);
-            }
-            printf("\n");
+    // Test : Joueur 1 essaie de placer une barrière à une position invalide (hors limites)
+    printf("\nTest : Joueur 1 place une barrière en (8, 8) (hors limites)\n");
+    poserBarriere(0, 8, 8, 'H', joueurs, grille);
+
+    // Test : Joueur 2 place une barrière à (3, 4) verticale
+    printf("\nTest : Joueur 2 place une barrière en (3, 4) verticale\n");
+    poserBarriere(1, 3, 4, 'V', joueurs, grille);
+
+    // Affichage de la grille après les placements
+    printf("\nGrille après les placements de barrières :\n");
+    for (int i = 0; i < T; i++) {
+        for (int j = 0; j < T; j++) {
+            printf("%c ", grille[i][j]);
         }
+        printf("\n");
     }
 
     return 0;
 }
+
