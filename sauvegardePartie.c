@@ -1,5 +1,9 @@
-#include <stdio.h>
+//
+// Created by rapha on 24/11/2024.
+//
 #include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
 #include "MAINN.h"
 
 // Sauvegarder l'état actuel de la partie dans un fichier
